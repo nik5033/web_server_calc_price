@@ -7,4 +7,6 @@ RUN bundle install
 
 COPY . .
 
+EXPOSE 5678
+
 CMD ["ruby", "http_server.rb"]
