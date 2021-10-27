@@ -2,13 +2,7 @@ require './loader/price_loader'
 
 class PriceCalc
     def self.price_hdd(params)
-        hdd_price = 0
-        params['hdd_type'].each do |hdd|
-            hdd = hdd.split('-')
-            
-            hdd_price += PriceLoader.get_type_price(hdd[0]) * hdd[1].to_i
-        end
-        hdd_price.to_i
+        PriceLoader.get_type_price(params['hdd_type']) * params['hdd_capacity'].to_i
     end
 
     def self.price_cpu(params)
